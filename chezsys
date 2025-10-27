@@ -1,5 +1,5 @@
 #! /usr/bin/env bash
 
-SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+SCRIPT_DIR=$( cd -- "$( dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")" )" &> /dev/null && pwd )
 
 sudo chezmoi --config "$SCRIPT_DIR/chezmoi.toml" "$@"
